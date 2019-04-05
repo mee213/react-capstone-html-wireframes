@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box; /*best practice*/
+    border: solid black 1px; /*dev use only*/
+}
+
+h1 { /*flex/center in order to center text*/
+    display: flex;
+    justify-content: center;
+}
+
+h1, h2, ul {
+    margin: 0; /*reset normalize back to zero*/
+}
+
+.container {
+    max-width: 800px; /*not too wide on big screens*/
+    margin: 0 auto; /*centered horizontally*/
+    padding: 20px; /*around edge of device screen*/
+    height: 100vh; /*full height of viewport*/
+    /*flex/column so that bottom doesn't overflow*/
+    display: flex;
+    flex-direction: column;
+}
+
+nav { /*flex/space-between to spread horizontally*/
+    display: flex;
+    justify-content: space-between;
+}
+
+main { /*flex/column to be able to flex-grow(1) the child ul so that add-new-item gets pushed to bottom of viewport*/
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /*expands main to 100% of Viewport*/
+}
+
+.search { /*flex/center in order to center text*/
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.item {
+    flex-grow: 1; /*expands to fill space between checkbox and star*/
+    /*align-self: flex-start;*/
+    padding: 10px; /*user-friendly*/
+}
+
+.checkbox {/*padding not working here! why?*/
+    min-width: 40px;
+    padding: 10px;
+}
+
+.star { /*padding is working here*/
+    min-width: 40px;
+    padding: 10px;
+}
+
+.add-new-item { /*flex in order to center text*/
+    display: flex;
+    justify-content: center;
+}
