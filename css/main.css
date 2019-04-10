@@ -9,17 +9,15 @@ h1 { /*flex/center in order to center text*/
 }
 
 h1, h2, ul {
-    margin: 0; /*reset normalize back to zero*/
+    margin: 0; /*reset normalize back to zero to start design process from scratch*/
 }
 
-.container {
+.container { /*flex/column so that bottom doesn't overflow*/
+    display: flex;
+    flex-direction: column;
     max-width: 800px; /*not too wide on big screens*/
     margin: 0 auto; /*centered horizontally*/
     padding: 20px; /*around edge of device screen*/
-    height: 100vh; /*full height of viewport*/
-    /*flex/column so that bottom doesn't overflow*/
-    display: flex;
-    flex-direction: column;
 }
 
 nav { /*flex/space-between to spread horizontally*/
@@ -30,7 +28,7 @@ nav { /*flex/space-between to spread horizontally*/
 main { /*flex/column to be able to flex-grow(1) the child ul so that add-new-item gets pushed to bottom of viewport*/
     display: flex;
     flex-direction: column;
-    height: 100vh; /*expands main to 100% of Viewport*/
+    min-height: 100vh; /*expands main to 100% of Viewport, necessary for shorter lists*/
 }
 
 .search { /*flex/center in order to center text*/
@@ -38,13 +36,13 @@ main { /*flex/column to be able to flex-grow(1) the child ul so that add-new-ite
     justify-content: center;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+ul { /*flex/column so list flows downward*/
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    flex-grow: 1;
+    list-style: none; /*take away bullet formatting*/
+    padding: 0; /*bring li elements back towards left side, gets rid of weird space on left*/
+    justify-content: flex-start; /*li elements are grouped towards top of list*/
+    flex-grow: 1; /*expands ul so that add-new-item is pushed to bottom of screen*/
 }
 
 .list li {
