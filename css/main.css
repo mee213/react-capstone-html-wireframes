@@ -54,7 +54,11 @@ ul { /*flex/column so list flows downward*/
 
 .item {
     flex-grow: 1; /*expands to fill space between checkbox and star*/
-    /*align-self: flex-start;*/
+    padding: 10px; /*user-friendly*/
+}
+
+.store {
+    flex-grow: 1; /*expands to fill horizontal space*/
     padding: 10px; /*user-friendly*/
 }
 
@@ -69,6 +73,11 @@ ul { /*flex/column so list flows downward*/
 }
 
 .add-new-item { /*flex in order to center text*/
+    display: flex;
+    justify-content: center;
+}
+
+.add-new-store { /*flex in order to center text*/
     display: flex;
     justify-content: center;
 }
