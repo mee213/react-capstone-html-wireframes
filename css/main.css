@@ -3,9 +3,9 @@
     border: solid black 1px; /*dev use only*/
 }
 
-h1 { /*flex/center in order to center text*/
-    display: flex;
-    justify-content: center;
+html, body { /*necessary to make other children things work*/
+    height: 100%;
+    margin: 0;
 }
 
 h1, h2, ul {
@@ -18,6 +18,7 @@ h1, h2, ul {
     max-width: 800px; /*not too wide on big screens*/
     margin: 0 auto; /*centered horizontally*/
     padding: 20px; /*around edge of device screen*/
+    min-height: 100vh; /*to expand container to bottom of viewport in the case of short lists but allow for longer lists to overflow*/
 }
 
 nav { /*flex/space-between to spread horizontally*/
@@ -25,13 +26,21 @@ nav { /*flex/space-between to spread horizontally*/
     justify-content: space-between;
 }
 
-main { /*flex/column to be able to flex-grow(1) the child ul so that add-new-item gets pushed to bottom of viewport*/
+main { /*flex/column so items flow downward*/
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /*expands main to 100% of Viewport, necessary for shorter lists*/
+    flex-grow: 1; /*expands downward to fill space in the case of short lists*/
 }
 
-.search { /*flex/center in order to center text*/
+main.landing-main {
+    justify-content: space-evenly; /*space things out nicely on landing page*/
+}
+
+main.signup-main {
+    justify-content: space-around;
+}
+
+h1, .search, .add-new, .plus-check, .trash, .price { /*flex/center in order to center text*/
     display: flex;
     justify-content: center;
 }
@@ -42,7 +51,6 @@ ul { /*flex/column so list flows downward*/
     list-style: none; /*take away bullet formatting*/
     padding: 0; /*bring li elements back towards left side, gets rid of weird space on left*/
     justify-content: flex-start; /*li elements are grouped towards top of list*/
-    flex-grow: 1; /*expands ul so that add-new-item is pushed to bottom of screen*/
 }
 
 .list li {
@@ -52,32 +60,42 @@ ul { /*flex/column so list flows downward*/
 
 }
 
-.item {
-    flex-grow: 1; /*expands to fill space between checkbox and star*/
-    padding: 10px; /*user-friendly*/
-}
-
-.store {
+.item, .favorite, .store {
     flex-grow: 1; /*expands to fill horizontal space*/
     padding: 10px; /*user-friendly*/
 }
 
-.checkbox {/*padding not working here! why?*/
+.checkbox {/*padding not working here! why? because input element?*/
     min-width: 40px;
     padding: 10px;
 }
 
-.star { /*padding is working here*/
+.star, .trash, .plus-check, .pencil { /*padding is working here*/
     min-width: 40px;
     padding: 10px;
 }
 
-.add-new-item { /*flex in order to center text*/
-    display: flex;
-    justify-content: center;
+.image {
+    object-fit: contain;
+    max-height: 50vh;
 }
 
-.add-new-store { /*flex in order to center text*/
-    display: flex;
-    justify-content: center;
+.price {
+    min-width: 60px;
+    padding: 10px;
 }
+
+.login {/*flex/column so form elements are stacked vertically*/
+    display: flex;
+    flex-direction: column;
+}
+
+p.description {
+    text-align: center; /*center the descriptive text*/
+    margin: 0 20px;
+}
+
+.login, .signup, .demo {
+    margin: 0 30px;
+}
+
